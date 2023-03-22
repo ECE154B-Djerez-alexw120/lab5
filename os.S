@@ -5,8 +5,8 @@
 
 #define USER_PA 0x80005000
 #define USER_VA 0x80001000
-#define USER_PA_2 0x80405000
-#define USER_VA_2 0x80401000
+#define USER_PA_2 0x80015000
+#define USER_VA_2 0x80011000
 
 #define KERNEL_PA 0x80000000
 #define PT2_PA 0x80002000
@@ -93,7 +93,7 @@ OS:
         sw t3, 0(t2);
 
         # Set USER_VA_2->USER_PA_2
-        li t2, PT1_PA + 8*PN1(USER_VA_2);
+        li t2, PT0_PA + 8*PN0(USER_VA_2);
         li t3, (PN(USER_PA_2) << 10) | 0xff;
         sw t3, 0(t2);
 
